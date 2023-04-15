@@ -3,7 +3,7 @@ import * as Fiber from "@react-three/fiber";
 import * as Drei from "@react-three/drei";
 
 export default () => {
-  const { scene } = Drei.useGLTF("http://localhost:3000/monkey.glb");
+  const { scene } = Drei.useGLTF("http://localhost:3000/bench.glb");
 
   return (
     <React.Suspense fallback={<p>...loading...</p>}>
