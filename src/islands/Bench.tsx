@@ -2,7 +2,11 @@ import * as React from "react";
 import * as Fiber from "@react-three/fiber";
 import * as Drei from "@react-three/drei";
 
-export default () => {
+type Props = {
+  onUnlock?: (e?: any) => void;
+};
+
+const Bench: React.FC<Props> = ({ onUnlock }) => {
   const { scene } = Drei.useGLTF("http://localhost:3000/bench.glb");
 
   return (
@@ -20,9 +24,13 @@ export default () => {
               <primitive scale={[1, 1, 1]} object={scene} />
             </group>
           </Drei.Stage>
-          <Drei.PointerLockControls selector="#button" />
+          <Drei.PointerLockControls
+            selector="#enter-button"
+            onUnlock={onUnlock}
+          />
         </mesh>
       </Fiber.Canvas>
     </React.Suspense>
   );
 };
+export default Bench;

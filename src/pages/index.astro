@@ -1,5 +1,7 @@
 ---
 import Bench from "@islands/Bench";
+import EnterButton from "@islands/EnterButton";
+import Exhibition from "@islands/Exhibition";
 ---
 
 <html lang="en">
@@ -11,8 +13,11 @@ import Bench from "@islands/Bench";
     <title>Astro</title>
   </head>
   <body>
-    <h1>Astro</h1>
-    <Bench client:only="react" />
-    <button id="button">Click to Start</button>
+    <div class="flex flex-col justify-center content-center h-screen relative">
+      <h1 class="text-center text-8xl font-bold">Pixly</h1>
+      <div class="flex-1">
+        <Exhibition client:only="react" />
+      </div>
+    </div>
   </body>
 </html>
