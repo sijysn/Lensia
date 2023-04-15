@@ -13,6 +13,7 @@ const Exhibition = () => {
     setTimeout(() => {
       setIsLocked(false);
     }, 1000);
+  const isSmartPhone = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   return (
     <React.Suspense
@@ -23,7 +24,9 @@ const Exhibition = () => {
       }
     >
       <Canvas onUnlock={unlock} isLocked={isLocked} endLoading={endLoading} />
-      {!isLocked && !isLoading && <EnterButton onClick={lock} />}
+      {!isLocked && !isLoading && !isSmartPhone && (
+        <EnterButton onClick={lock} />
+      )}
     </React.Suspense>
   );
 };
