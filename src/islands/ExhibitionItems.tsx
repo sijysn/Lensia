@@ -3,7 +3,7 @@ import * as THREE from "three";
 import * as React from "react";
 
 const ExhibitionItems: React.FC = () => {
-  const Bench = Drei.useGLTF("http://localhost:3000/bench.glb");
+  const Bench = Drei.useGLTF("/bench.glb");
 
   const textureLoader = new THREE.TextureLoader();
   const sakura1Texture = textureLoader.load("/img/sakura1.jpg");
