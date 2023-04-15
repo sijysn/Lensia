@@ -15,7 +15,7 @@ export default () => {
             inclination={0}
             azimuth={0.25}
           />
-          <Drei.Stage controls={null}>
+          <Drei.Stage>
             <group dispose={null}>
               <primitive scale={[1, 1, 1]} object={scene} />
             </group>
