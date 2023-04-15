@@ -43,7 +43,7 @@ const ExhibitionItems: React.FC = () => {
         </Drei.Stage>
 
         <mesh position={[24, 12, -2]} rotation={[0, Math.PI * 1.5, 0]}>
-          <planeBufferGeometry args={[10, 10, 8]} />
+          <planeBufferGeometry args={[10, 10, 1]} />
           <meshStandardMaterial map={titleTexture} />
         </mesh>
         <mesh position={[24, 5, -3]} rotation={[0, Math.PI * 1.5, 0]}>
@@ -54,7 +54,7 @@ const ExhibitionItems: React.FC = () => {
           <planeBufferGeometry args={[8, 8, 8]} />
           <meshStandardMaterial map={descriptionTexture} />
         </mesh>
-        <mesh position={[24, 5, 12]} rotation={[0, Math.PI * 1.5, 0]}>
+        <mesh position={[24, 5, 14]} rotation={[0, Math.PI * 1.5, 0]}>
           <planeBufferGeometry args={[4, 4, 4]} />
           <meshStandardMaterial map={logoTexture} />
         </mesh>
