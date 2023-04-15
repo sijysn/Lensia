@@ -13,7 +13,7 @@ const ExhibitionItems: React.FC = () => {
   const sakura5Texture = textureLoader.load("/img/sakura5.jpg");
 
   const titleTexture = textureLoader.load("/img/title.png");
-  const descriptionTexture = textureLoader.load("/img/description.png");
+  const description2Texture = textureLoader.load("/img/description2.png");
   const logoTexture = textureLoader.load("/img/logo.png");
 
   const shadowTexture = textureLoader.load("/img/shadow.jpg");
@@ -52,7 +52,7 @@ const ExhibitionItems: React.FC = () => {
         </mesh>
         <mesh position={[24, 5, 6]} rotation={[0, Math.PI * 1.5, 0]}>
           <planeBufferGeometry args={[8, 8, 8]} />
-          <meshStandardMaterial map={descriptionTexture} />
+          <meshStandardMaterial map={description2Texture} />
         </mesh>
         <mesh position={[24, 5, 14]} rotation={[0, Math.PI * 1.5, 0]}>
           <planeBufferGeometry args={[4, 4, 4]} />
