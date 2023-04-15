@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/react": "^2.1.1",
     "@astrojs/tailwind": "^3.1.1",
+    "@astrojs/vercel": "^3.2.4",
     "@react-three/drei": "9.22.9",
     "@react-three/fiber": "8.3.1",
     "@types/react": "^18.0.35",
