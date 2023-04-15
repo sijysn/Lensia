@@ -18,7 +18,7 @@ const Exhibition = () => {
     <React.Suspense
       fallback={
         <div className="w-full h-full flex justify-center">
-          <img src="/public/img/loading.gif" className="mx-0 my-auto block" />
+          <img src="/img/loading.gif" className="mx-0 my-auto block" />
         </div>
       }
     >
