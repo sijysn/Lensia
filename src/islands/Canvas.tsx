@@ -1,20 +1,24 @@
 import * as Fiber from "@react-three/fiber";
-import * as React from "react";
 import EnterButton from "./EnterButton";
 import MoveableArea from "./MoveableArea";
 
 type Props = {
   onUnlock: (e?: any) => void;
   isLocked: boolean;
+  endLoading: () => void;
 };
 
-const Canvas: React.FC<Props> = ({ onUnlock, isLocked }) => {
+const Canvas: React.FC<Props> = ({ onUnlock, isLocked, endLoading }) => {
   return (
-    <React.Suspense fallback={<p>...loading...</p>}>
+    <>
       <Fiber.Canvas>
-        <MoveableArea onUnlock={onUnlock} isLocked={isLocked} />
+        <MoveableArea
+          onUnlock={onUnlock}
+          isLocked={isLocked}
+          endLoading={endLoading}
+        />
       </Fiber.Canvas>
-    </React.Suspense>
+    </>
   );
 };
 

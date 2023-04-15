@@ -4,6 +4,9 @@ import Canvas from "./Canvas";
 
 const Exhibition = () => {
   const [isLocked, setIsLocked] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  const endLoading = () => setIsLoading(false);
 
   const lock = () => setIsLocked(true);
   const unlock = () =>
@@ -12,10 +15,16 @@ const Exhibition = () => {
     }, 1000);
 
   return (
-    <>
-      <Canvas onUnlock={unlock} isLocked={isLocked} />
-      {!isLocked && <EnterButton onClick={lock} />}
-    </>
+    <React.Suspense
+      fallback={
+        <div className="w-full h-full flex justify-center">
+          <img src="/public/img/loading.gif" className="mx-0 my-auto block" />
+        </div>
+      }
+    >
+      <Canvas onUnlock={unlock} isLocked={isLocked} endLoading={endLoading} />
+      {!isLocked && !isLoading && <EnterButton onClick={lock} />}
+    </React.Suspense>
   );
 };
 

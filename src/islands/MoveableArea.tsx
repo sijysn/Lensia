@@ -1,12 +1,11 @@
 import * as React from "react";
 import * as Drei from "@react-three/drei";
-import * as THREE from "three";
-import * as Fiber from "@react-three/fiber";
 import ExhibitionItems from "./ExhibitionItems";
 
 type Props = {
   onUnlock: (e?: any) => void;
   isLocked: boolean;
+  endLoading: () => void;
 };
 
 const MovementBounds = {
@@ -16,7 +15,7 @@ const MovementBounds = {
   zMax: 20,
 };
 
-const MoveableArea: React.FC<Props> = ({ onUnlock, isLocked }) => {
+const MoveableArea: React.FC<Props> = ({ onUnlock, isLocked, endLoading }) => {
   const controlsRef = React.useRef<any>(null);
 
   const onKeyDown = (e: KeyboardEvent) => {
@@ -54,14 +53,22 @@ const MoveableArea: React.FC<Props> = ({ onUnlock, isLocked }) => {
       );
   };
 
-  document.addEventListener("keydown", onKeyDown);
+  React.useEffect(() => {
+    document.addEventListener("keydown", onKeyDown);
+    endLoading();
+
+    return () => document.removeEventListener("keydown", onKeyDown);
+  });
 
   return (
     <group>
       <ExhibitionItems />
       <Drei.PointerLockControls
         selector="#enter-button"
-        onUnlock={onUnlock}
+        onUnlock={() => {
+          onUnlock();
+          document.removeEventListener("keydown", onKeyDown);
+        }}
         ref={controlsRef}
       />
     </group>
