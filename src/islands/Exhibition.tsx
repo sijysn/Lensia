@@ -1,6 +1,6 @@
 import * as React from "react";
-import Bench from "./Bench";
 import EnterButton from "./EnterButton";
+import Canvas from "./Canvas";
 
 const Exhibition = () => {
   const [isLocked, setIsLocked] = React.useState(false);
@@ -13,7 +13,7 @@ const Exhibition = () => {
 
   return (
     <>
-      <Bench onUnlock={unlock} />
+      <Canvas onUnlock={unlock} />
       {!isLocked && <EnterButton onClick={lock} />}
     </>
   );
