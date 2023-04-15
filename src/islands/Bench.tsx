@@ -8,19 +8,20 @@ export default () => {
   return (
     <React.Suspense fallback={<p>...loading...</p>}>
       <Fiber.Canvas>
-        <Drei.PerspectiveCamera makeDefault />
-        <Drei.OrbitControls enablePan enableZoom enableRotate />
-        <Drei.Sky
-          distance={450000}
-          sunPosition={[0, 1, 1]}
-          inclination={0}
-          azimuth={0.25}
-        />
-        <Drei.Stage>
-          <group dispose={null}>
-            <primitive scale={[1, 1, 1]} object={scene} />
-          </group>
-        </Drei.Stage>
+        <mesh>
+          <Drei.Sky
+            distance={450000}
+            sunPosition={[0, 1, 1]}
+            inclination={0}
+            azimuth={0.25}
+          />
+          <Drei.Stage controls={null}>
+            <group dispose={null}>
+              <primitive scale={[1, 1, 1]} object={scene} />
+            </group>
+          </Drei.Stage>
+          <Drei.PointerLockControls selector="#button" />
+        </mesh>
       </Fiber.Canvas>
     </React.Suspense>
   );
