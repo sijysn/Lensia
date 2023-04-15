@@ -12,9 +12,8 @@ const MoveableArea: React.FC<Props> = ({ onUnlock }) => {
   const controlsRef = React.useRef<any>(null);
 
   const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load("/public/sakura.jpg");
-
-  const floreTexture = textureLoader.load("/public/flore.jpg");
+  const sakuraTexture = textureLoader.load("/public/img/sakura.jpg");
+  const floreTexture = textureLoader.load("/public/img/flore.jpg");
 
   floreTexture.wrapS = floreTexture.wrapT = THREE.RepeatWrapping; // 画像を繰り返しにする
   floreTexture.repeat.set(2, 2); // 繰り返す回数
@@ -82,7 +81,7 @@ const MoveableArea: React.FC<Props> = ({ onUnlock }) => {
       </Drei.Stage>
       <mesh position={[0, 5, -23]}>
         <planeBufferGeometry args={[4, 4, 3]} />
-        <meshStandardMaterial map={texture} />
+        <meshStandardMaterial map={sakuraTexture} />
       </mesh>
       <mesh position={[0, 0, -25]}>
         <boxBufferGeometry args={[50, 25, 0.1]} />
