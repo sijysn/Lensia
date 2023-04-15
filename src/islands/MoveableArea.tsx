@@ -7,7 +7,7 @@ type Props = {
 };
 
 const MoveableArea: React.FC<Props> = ({ onUnlock }) => {
-  const { scene } = Drei.useGLTF("http://localhost:3000/bench.glb");
+  const Bench = Drei.useGLTF("http://localhost:3000/bench.glb");
 
   const controlsRef = React.useRef<any>(null);
 
@@ -31,16 +31,16 @@ const MoveableArea: React.FC<Props> = ({ onUnlock }) => {
     }
     const movementDistance = 0.5;
     switch (e.key) {
-      case "w":
+      case "ArrowUp":
         controlsRef.current.moveForward(movementDistance);
         break;
-      case "a":
+      case "ArrowRight":
         controlsRef.current.moveRight(-movementDistance);
         break;
-      case "s":
+      case "ArrowDown":
         controlsRef.current.moveForward(-movementDistance);
         break;
-      case "d":
+      case "ArrowLeft":
         controlsRef.current.moveRight(movementDistance);
         break;
       default:
@@ -68,15 +68,15 @@ const MoveableArea: React.FC<Props> = ({ onUnlock }) => {
       <pointLight position={[10, 10, 10]} />
       <Drei.Stage>
         <group dispose={null}>
-          <primitive scale={[1, 1, 1]} object={scene} />
+          <primitive scale={[1, 1, 1]} object={Bench.scene} />
         </group>
       </Drei.Stage>
       <Drei.Stage>
         <group dispose={null}>
           <primitive
             scale={[0.5, 0.5, 0.5]}
-            rocation={[5, 5, 5]}
-            object={scene}
+            position={[5, 5, 5]}
+            object={Bench.scene}
           />
         </group>
       </Drei.Stage>
