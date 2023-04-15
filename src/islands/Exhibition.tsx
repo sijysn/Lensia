@@ -13,7 +13,7 @@ const Exhibition = () => {
 
   return (
     <>
-      <Canvas onUnlock={unlock} />
+      <Canvas onUnlock={unlock} isLocked={isLocked} />
       {!isLocked && <EnterButton onClick={lock} />}
     </>
   );
