@@ -6,30 +6,26 @@ const ExhibitionItems: React.FC = () => {
   const Bench = Drei.useGLTF("http://localhost:3000/bench.glb");
 
   const textureLoader = new THREE.TextureLoader();
-  const sakura1Texture = textureLoader.load("../../public/img/sakura1.jpg");
-  const sakura2Texture = textureLoader.load("../../public/img/sakura2.jpg");
-  const sakura3Texture = textureLoader.load("../../public/img/sakura3.jpg");
-  const sakura4Texture = textureLoader.load("../../public/img/sakura4.jpg");
-  const sakura5Texture = textureLoader.load("../../public/img/sakura5.jpg");
+  const sakura1Texture = textureLoader.load("/img/sakura1.jpg");
+  const sakura2Texture = textureLoader.load("/img/sakura2.jpg");
+  const sakura3Texture = textureLoader.load("/img/sakura3.jpg");
+  const sakura4Texture = textureLoader.load("/img/sakura4.jpg");
+  const sakura5Texture = textureLoader.load("/img/sakura5.jpg");
 
-  const titleTexture = textureLoader.load("../../public/img/title.png");
-  const descriptionTexture = textureLoader.load(
-    "../../public/img/description.png"
-  );
-  const logoTexture = textureLoader.load("../../public/img/logo.png");
+  const titleTexture = textureLoader.load("/img/title.png");
+  const descriptionTexture = textureLoader.load("/img/description.png");
+  const logoTexture = textureLoader.load("/img/logo.png");
 
-  const shadowTexture = textureLoader.load("../../public/img/shadow.jpg");
-  const tableTexture = textureLoader.load("../../public/img/table.jpg");
-  const mochanTexture = textureLoader.load("../../public/img/mochan.jpg");
+  const shadowTexture = textureLoader.load("/img/shadow.jpg");
+  const tableTexture = textureLoader.load("/img/table.jpg");
+  const mochanTexture = textureLoader.load("/img/mochan.jpg");
 
-  const parliamentTexture = textureLoader.load(
-    "../../public/img/parliament.jpg"
-  );
-  const pumpkin1Texture = textureLoader.load("../../public/img/pumpkin1.jpg");
-  const pumpkin2Texture = textureLoader.load("../../public/img/pumpkin2.jpg");
-  const postTexture = textureLoader.load("../../public/img/post.jpg");
+  const parliamentTexture = textureLoader.load("/img/parliament.jpg");
+  const pumpkin1Texture = textureLoader.load("/img/pumpkin1.jpg");
+  const pumpkin2Texture = textureLoader.load("/img/pumpkin2.jpg");
+  const postTexture = textureLoader.load("/img/post.jpg");
 
-  const floreTexture = textureLoader.load("../../public/img/flore.jpg");
+  const floreTexture = textureLoader.load("/img/flore.jpg");
 
   floreTexture.wrapS = floreTexture.wrapT = THREE.RepeatWrapping; // 画像を繰り返しにする
   floreTexture.repeat.set(2, 2); // 繰り返す回数
