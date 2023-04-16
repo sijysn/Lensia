@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as Drei from "@react-three/drei";
 import ExhibitionItems from "./ExhibitionItems";
+import * as THREE from "three";
 
 type Props = {
   onUnlock: (e?: any) => void;
@@ -60,26 +61,19 @@ const MoveableArea: React.FC<Props> = ({ onUnlock, isLocked, endLoading }) => {
     return () => document.removeEventListener("keydown", onKeyDown);
   });
 
-  const isSmartPhone = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  // const isSmartPhone = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   return (
     <group>
       <ExhibitionItems />
-      {isSmartPhone ? (
-        <Drei.DeviceOrientationControls
-          ref={controlsRef}
-          args={[controlsRef.current]}
-        />
-      ) : (
-        <Drei.PointerLockControls
-          selector="#enter-button"
-          onUnlock={() => {
-            onUnlock();
-            document.removeEventListener("keydown", onKeyDown);
-          }}
-          ref={controlsRef}
-        />
-      )}
+      <Drei.PointerLockControls
+        selector="#enter-button"
+        onUnlock={() => {
+          onUnlock();
+          document.removeEventListener("keydown", onKeyDown);
+        }}
+        ref={controlsRef}
+      />
     </group>
   );
 };
