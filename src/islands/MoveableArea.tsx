@@ -66,16 +66,10 @@ const MoveableArea: React.FC<Props> = ({ onUnlock, isLocked, endLoading }) => {
     <group>
       <ExhibitionItems />
       {isSmartPhone ? (
-        <>
-          <Drei.PerspectiveCamera
-            ref={controlsRef}
-            position={[0, 5, 0]}
-            fov={75}
-            near={0.1}
-            far={1000}
-          />
-          <Drei.DeviceOrientationControls ref={controlsRef} />
-        </>
+        <Drei.DeviceOrientationControls
+          ref={controlsRef}
+          args={[controlsRef.current]}
+        />
       ) : (
         <Drei.PointerLockControls
           selector="#enter-button"
