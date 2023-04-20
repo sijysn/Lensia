@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as Drei from "@react-three/drei";
-import * as THREE from "three";
 import Meshes from "@islands/common/Meshes";
 
 type Props = {

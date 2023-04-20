@@ -3,6 +3,10 @@ import * as THREE from "three";
 import * as React from "react";
 import Meshes from "@islands/common/Meshes";
 
+type Props = {
+  controls: any;
+};
+
 const MovementBounds = {
   xMin: -20,
   xMax: 20,
@@ -10,7 +14,7 @@ const MovementBounds = {
   zMax: 20,
 };
 
-const ExhibitionItems: React.FC<{ controls: any }> = ({ controls }) => {
+const MoveableArea: React.FC<Props> = ({ controls }) => {
   Fiber.useFrame(({ camera }, delta) => {
     if (lerping) {
       camera.position.lerp(to, delta);
@@ -42,4 +46,4 @@ const ExhibitionItems: React.FC<{ controls: any }> = ({ controls }) => {
     []
   );
 };
-export default ExhibitionItems;
+export default MoveableArea;

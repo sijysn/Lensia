@@ -1,7 +1,7 @@
 import * as Drei from "@react-three/drei";
 import * as Fiber from "@react-three/fiber";
 import * as React from "react";
-import ExhibitionItems from "./ExhibitionItems";
+import ExhibitionItems from "@islands/SP/MoveableArea";
 
 const Canvas = () => {
   const ref = React.useRef<any>();
