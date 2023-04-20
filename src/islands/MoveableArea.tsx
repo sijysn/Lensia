@@ -106,19 +106,23 @@ const MoveableArea: React.FC<Props> = ({ onUnlock, isLocked, endLoading }) => {
     };
   });
 
-  // const isSmartPhone = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const isSmartPhone = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   return (
     <group>
       <ExhibitionItems />
-      <Drei.PointerLockControls
-        selector="#enter-button"
-        onUnlock={() => {
-          onUnlock();
-          document.removeEventListener("keydown", onKeyDown);
-        }}
-        ref={controlsRef}
-      />
+      {isSmartPhone ? (
+        <Drei.FirstPersonControls />
+      ) : (
+        <Drei.PointerLockControls
+          selector="#enter-button"
+          onUnlock={() => {
+            onUnlock();
+            document.removeEventListener("keydown", onKeyDown);
+          }}
+          ref={controlsRef}
+        />
+      )}
     </group>
   );
 };
