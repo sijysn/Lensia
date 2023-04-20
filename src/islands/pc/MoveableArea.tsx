@@ -1,7 +1,6 @@
 import * as React from "react";
 import * as Drei from "@react-three/drei";
-import ExhibitionItems from "./ExhibitionItems";
-import * as THREE from "three";
+import Meshes from "../common/Meshes";
 
 type Props = {
   onUnlock: (e?: any) => void;
@@ -106,11 +105,9 @@ const MoveableArea: React.FC<Props> = ({ onUnlock, isLocked, endLoading }) => {
     };
   });
 
-  // const isSmartPhone = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
   return (
     <group>
-      <ExhibitionItems />
+      <Meshes />
       <Drei.PointerLockControls
         selector="#enter-button"
         onUnlock={() => {

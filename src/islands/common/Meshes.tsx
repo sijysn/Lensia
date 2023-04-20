@@ -2,7 +2,7 @@ import * as Drei from "@react-three/drei";
 import * as THREE from "three";
 import * as React from "react";
 
-const ExhibitionItems: React.FC = () => {
+const Meshes: React.FC = () => {
   const Bench = Drei.useGLTF("/bench.glb");
 
   const textureLoader = new THREE.TextureLoader();
@@ -141,4 +141,4 @@ const ExhibitionItems: React.FC = () => {
     []
   );
 };
-export default ExhibitionItems;
+export default Meshes;
