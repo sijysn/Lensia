@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as Drei from "@react-three/drei";
-import ExhibitionItems from "./smartphone/ExhibitionItems";
+import ExhibitionItems from "./pc/ExhibitionItems";
 import * as THREE from "three";
 
 type Props = {
@@ -108,7 +108,7 @@ const MoveableArea: React.FC<Props> = ({ onUnlock, isLocked, endLoading }) => {
 
   return (
     <group>
-      {/* <ExhibitionItems /> */}
+      <ExhibitionItems />
       <Drei.PointerLockControls
         selector="#enter-button"
         onUnlock={() => {

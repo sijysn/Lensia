@@ -2,7 +2,7 @@ import { Stats, OrbitControls, useGLTF, Environment } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useRef, useState } from "react";
 import { Vector3 } from "three";
-import ExhibitionItems from "./smartphone/ExhibitionItems";
+import ExhibitionItems from "./sp/ExhibitionItems";
 
 export default function SPCanvas() {
   const ref = useRef<any>();
