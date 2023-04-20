@@ -110,7 +110,7 @@ const MoveableArea: React.FC<Props> = ({ onUnlock, isLocked, endLoading }) => {
 
   return (
     <group>
-      <ExhibitionItems />
+      {/* <ExhibitionItems /> */}
       <Drei.PointerLockControls
         selector="#enter-button"
         onUnlock={() => {
