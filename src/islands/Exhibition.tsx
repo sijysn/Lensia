@@ -1,5 +1,5 @@
 import * as React from "react";
-import EnterButton from "./PC/EnterButton";
+import EnterButton from "@islands/PC/EnterButton";
 import PCCanvas from "@islands/PC/Canvas";
 import SPCanvas from "@islands/SP/Canvas";
 
