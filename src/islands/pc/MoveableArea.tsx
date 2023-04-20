@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as Drei from "@react-three/drei";
-import ExhibitionItems from "./pc/ExhibitionItems";
+import ExhibitionItems from "./ExhibitionItems";
 import * as THREE from "three";
 
 type Props = {

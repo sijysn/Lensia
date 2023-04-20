@@ -1,7 +1,7 @@
 import * as React from "react";
-import EnterButton from "./EnterButton";
-import PCCanvas from "./PCCanvas";
-import SPCanvas from "./SPCanvas";
+import EnterButton from "./PC/EnterButton";
+import PCCanvas from "./PC/Canvas";
+import SPCanvas from "./SP/Canvas";
 
 const Exhibition = () => {
   const [isLocked, setIsLocked] = React.useState(false);
@@ -28,14 +28,14 @@ const Exhibition = () => {
       {isSmartPhone ? (
         <SPCanvas />
       ) : (
-        <PCCanvas
-          onUnlock={unlock}
-          isLocked={isLocked}
-          endLoading={endLoading}
-        />
-      )}
-      {!isLocked && !isLoading && !isSmartPhone && (
-        <EnterButton onClick={lock} />
+        <>
+          <PCCanvas
+            onUnlock={unlock}
+            isLocked={isLocked}
+            endLoading={endLoading}
+          />
+          {!isLocked && !isLoading && <EnterButton onClick={lock} />}
+        </>
       )}
     </React.Suspense>
   );
