@@ -1,7 +1,6 @@
 import { Stats, OrbitControls, useGLTF, Environment } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
-import { useControls, button } from "leva";
 import { Vector3 } from "three";
 // import annotations from "./annotations.json";
 
