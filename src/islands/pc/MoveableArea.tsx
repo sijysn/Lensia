@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as Drei from "@react-three/drei";
-import Meshes from "@islands/common/Meshes";
+import Meshes from "../common/Meshes";
 
 type Props = {
   onUnlock: (e?: any) => void;

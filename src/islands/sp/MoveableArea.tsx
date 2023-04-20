@@ -1,7 +1,7 @@
 import * as Fiber from "@react-three/fiber";
 import * as THREE from "three";
 import * as React from "react";
-import Meshes from "@islands/common/Meshes";
+import Meshes from "../common/Meshes";
 
 type Props = {
   controls: any;

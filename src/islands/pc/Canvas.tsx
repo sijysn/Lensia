@@ -1,5 +1,5 @@
 import * as Fiber from "@react-three/fiber";
-import MoveableArea from "@islands/PC/MoveableArea";
+import MoveableArea from "./MoveableArea";
 
 type Props = {
   onUnlock: (e?: any) => void;
