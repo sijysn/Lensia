@@ -10,15 +10,13 @@ type Props = {
 
 const Canvas: React.FC<Props> = ({ onUnlock, isLocked, endLoading }) => {
   return (
-    <>
-      <Fiber.Canvas>
-        <MoveableArea
-          onUnlock={onUnlock}
-          isLocked={isLocked}
-          endLoading={endLoading}
-        />
-      </Fiber.Canvas>
-    </>
+    <Fiber.Canvas>
+      <MoveableArea
+        onUnlock={onUnlock}
+        isLocked={isLocked}
+        endLoading={endLoading}
+      />
+    </Fiber.Canvas>
   );
 };
 

@@ -1,6 +1,7 @@
 import * as React from "react";
 import EnterButton from "./EnterButton";
-import Canvas from "./Canvas";
+import PCCanvas from "./PCCanvas";
+import SPCanvas from "./SPCanvas";
 
 const Exhibition = () => {
   const [isLocked, setIsLocked] = React.useState(false);
@@ -14,6 +15,8 @@ const Exhibition = () => {
       setIsLocked(false);
     }, 1000);
 
+  const isSmartPhone = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
   return (
     <React.Suspense
       fallback={
@@ -22,8 +25,18 @@ const Exhibition = () => {
         </div>
       }
     >
-      <Canvas onUnlock={unlock} isLocked={isLocked} endLoading={endLoading} />
-      {!isLocked && !isLoading && <EnterButton onClick={lock} />}
+      {isSmartPhone ? (
+        <SPCanvas />
+      ) : (
+        <PCCanvas
+          onUnlock={unlock}
+          isLocked={isLocked}
+          endLoading={endLoading}
+        />
+      )}
+      {!isLocked && !isLoading && !isSmartPhone && (
+        <EnterButton onClick={lock} />
+      )}
     </React.Suspense>
   );
 };

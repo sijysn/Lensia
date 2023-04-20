@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { Vector3 } from "three";
 import ExhibitionItems from "./smartphone/ExhibitionItems";
 
-export default function Test() {
+export default function SPCanvas() {
   const ref = useRef<any>();
 
   return (
