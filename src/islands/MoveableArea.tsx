@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as Drei from "@react-three/drei";
+import * as Fiber from "@react-three/fiber";
 import ExhibitionItems from "./ExhibitionItems";
 import * as THREE from "three";
 
@@ -106,19 +107,46 @@ const MoveableArea: React.FC<Props> = ({ onUnlock, isLocked, endLoading }) => {
     };
   });
 
-  // const isSmartPhone = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const isSmartPhone = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  const speed = 0.1; // 移動スピード
+  const rotationSpeed = 0.002; // 回転スピード
+
+  Fiber.useFrame(() => {
+    // ジャイロスコープの傾きに応じてカメラの位置と角度を更新
+    if (controlsRef.current && window.DeviceOrientationEvent) {
+      window.addEventListener(
+        "deviceorientation",
+        (event: DeviceOrientationEvent) => {
+          const { beta, gamma } = event;
+          const x = controlsRef.current.position.x;
+          const z = controlsRef.current.position.z;
+          const newX = x - gamma! * speed; // 左右の傾きに応じてX座標を更新
+          const newZ = z - beta! * speed; // 上下の傾きに応じてZ座標を更新
+          controlsRef.current.position.set(newX, 0, newZ);
+          controlsRef.current.rotation.y = -gamma! * rotationSpeed; // 左右の傾きに応じてY軸の回転角度を更新
+          controlsRef.current.rotation.x = -beta! * rotationSpeed; // 上下の傾きに応じてX軸の回転角度を更新
+          controlsRef.current.updateMatrixWorld(); // カメラの変更を反映
+        }
+      );
+    }
+  });
 
   return (
     <group>
       <ExhibitionItems />
-      <Drei.PointerLockControls
-        selector="#enter-button"
-        onUnlock={() => {
-          onUnlock();
-          document.removeEventListener("keydown", onKeyDown);
-        }}
-        ref={controlsRef}
-      />
+      {isSmartPhone ? (
+        <Drei.PerspectiveCamera ref={controlsRef} position={[0, 0, 5]} />
+      ) : (
+        <Drei.PointerLockControls
+          selector="#enter-button"
+          onUnlock={() => {
+            onUnlock();
+            document.removeEventListener("keydown", onKeyDown);
+          }}
+          ref={controlsRef}
+        />
+      )}
     </group>
   );
 };
