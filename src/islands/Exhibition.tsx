@@ -1,7 +1,7 @@
 import * as React from "react";
-import EnterButton from "./PC/EnterButton";
-import PCCanvas from "./PC/Canvas";
-import SPCanvas from "./SP/Canvas";
+import EnterButton from "./pc/EnterButton";
+import PCCanvas from "./pc/Canvas";
+import SPCanvas from "./sp/Canvas";
 
 const Exhibition = () => {
   const [isLocked, setIsLocked] = React.useState(false);
