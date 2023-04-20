@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Drei from "@react-three/drei";
-import ExhibitionItems from "./ExhibitionItems";
 import * as THREE from "three";
+import Meshes from "@islands/common/Meshes";
 
 type Props = {
   onUnlock: (e?: any) => void;
@@ -108,7 +108,7 @@ const MoveableArea: React.FC<Props> = ({ onUnlock, isLocked, endLoading }) => {
 
   return (
     <group>
-      <ExhibitionItems />
+      <Meshes />
       <Drei.PointerLockControls
         selector="#enter-button"
         onUnlock={() => {
