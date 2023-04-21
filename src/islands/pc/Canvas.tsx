@@ -9,7 +9,7 @@ type Props = {
 
 const Canvas: React.FC<Props> = ({ onUnlock, isLocked, endLoading }) => {
   return (
-    <Fiber.Canvas>
+    <Fiber.Canvas camera={{ fov: 45 }}>
       <MoveableArea
         onUnlock={onUnlock}
         isLocked={isLocked}

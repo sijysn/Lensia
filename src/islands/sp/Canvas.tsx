@@ -7,7 +7,7 @@ const Canvas = () => {
   const ref = React.useRef<any>();
 
   return (
-    <Fiber.Canvas camera={{ position: [10, 10, 10] }} shadows>
+    <Fiber.Canvas camera={{ fov: 45 }}>
       <directionalLight
         intensity={1}
         castShadow

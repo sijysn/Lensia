@@ -32,111 +32,153 @@ const Meshes: React.FC = () => {
 
   return React.useMemo(
     () => (
-      <>
-        <ambientLight intensity={0.1} />
-        <ambientLight intensity={1} position={[-24.0, 0, 16]} />
-        <pointLight intensity={0.1} position={[0, 5, 0]} />
+      <group>
         <Drei.Stage>
-          <group scale={[0.4, 0.4, 0.4]}>
-            <primitive object={Bench.scene} />
-          </group>
+          <mesh visible={false} position={[0, 5, 0]}>
+            <planeGeometry args={[1, 16, 1]} />
+          </mesh>
         </Drei.Stage>
 
+        <mesh
+          scale={[0.4, 0.4, 0.3]}
+          position={[12, -1, 5]}
+          rotation={[0, Math.PI / 2, 0]}
+        >
+          <primitive object={Bench.scene} />
+        </mesh>
+
         <mesh position={[24, 12, -2]} rotation={[0, Math.PI * 1.5, 0]}>
-          <planeBufferGeometry args={[10, 10, 1]} />
+          <planeGeometry args={[10, 10, 1]} />
           <meshStandardMaterial map={titleTexture} />
         </mesh>
-        <mesh position={[24, 5, -3]} rotation={[0, Math.PI * 1.5, 0]}>
-          <planeBufferGeometry args={[6, 4, 4]} />
+        <mesh position={[24, 4, -3]} rotation={[0, Math.PI * 1.5, 0]}>
+          <planeGeometry args={[6, 4, 1]} />
           <meshStandardMaterial map={mochanTexture} />
         </mesh>
         <mesh position={[24, 5, 6]} rotation={[0, Math.PI * 1.5, 0]}>
-          <planeBufferGeometry args={[8, 8, 8]} />
+          <planeGeometry args={[8, 8, 1]} />
           <meshStandardMaterial map={description2Texture} />
         </mesh>
-        <mesh position={[24, 5, 14]} rotation={[0, Math.PI * 1.5, 0]}>
-          <planeBufferGeometry args={[4, 4, 4]} />
+        <mesh position={[24, 4, 14]} rotation={[0, Math.PI * 1.5, 0]}>
+          <planeGeometry args={[4, 4, 1]} />
           <meshStandardMaterial map={logoTexture} />
         </mesh>
 
-        <mesh position={[0, 5, -23]}>
-          <planeBufferGeometry args={[6, 6, 6]} />
+        <mesh scale={[5, 5, 0.2]} position={[0, 4, -24.9]} castShadow>
+          <boxGeometry />
           <meshStandardMaterial map={sakura1Texture} />
         </mesh>
-        <mesh position={[-18, 5, -23]}>
-          <planeBufferGeometry args={[6, 4, 6]} />
+        <mesh scale={[6, 4, 0.2]} position={[-18, 4, -24.9]}>
+          <boxGeometry />
           <meshStandardMaterial map={sakura2Texture} />
         </mesh>
-        <mesh position={[-9, 5, -23]}>
-          <planeBufferGeometry args={[6, 4, 3]} />
+        <mesh scale={[6, 4, 0.2]} position={[-9, 4, -24.9]}>
+          <boxGeometry />
           <meshStandardMaterial map={sakura3Texture} />
         </mesh>
-        <mesh position={[9, 5, -23]}>
-          <planeBufferGeometry args={[6, 4, 3]} />
+        <mesh scale={[6, 4, 0.2]} position={[9, 4, -24.9]}>
+          <boxGeometry />
           <meshStandardMaterial map={sakura4Texture} />
         </mesh>
-        <mesh position={[18, 5, -23]}>
-          <planeBufferGeometry args={[6, 4, 6]} />
+        <mesh scale={[6, 4, 0.2]} position={[18, 4, -24.9]}>
+          <boxGeometry />
           <meshStandardMaterial map={sakura5Texture} />
         </mesh>
 
-        <mesh position={[-23, 5, -12]} rotation={[0, Math.PI * 0.5, 0]}>
-          <planeBufferGeometry args={[6, 4, 3]} />
+        <mesh
+          scale={[6, 4, 0.2]}
+          position={[-24.9, 4, -12]}
+          rotation={[0, Math.PI * 0.5, 0]}
+        >
+          <boxGeometry />
           <meshStandardMaterial map={shadowTexture} />
         </mesh>
-        <mesh position={[-23, 5, 0]} rotation={[0, Math.PI * 0.5, 0]}>
-          <planeBufferGeometry args={[6, 4, 3]} />
+        <mesh
+          scale={[6, 4, 0.2]}
+          position={[-24.9, 4, 0]}
+          rotation={[0, Math.PI * 0.5, 0]}
+        >
+          <boxGeometry />
           <meshStandardMaterial map={tableTexture} />
         </mesh>
-        <mesh position={[-24.9, 0, 16]} rotation={[0, Math.PI * 0.5, 0]}>
-          <planeBufferGeometry args={[8, 16, 6]} />
+        <mesh position={[-24.9, 4, 16]} rotation={[0, Math.PI * 0.5, 0]}>
+          <planeGeometry args={[8, 8, 1]} />
           <meshStandardMaterial color={new THREE.Color(0x000000)} />
         </mesh>
 
-        <mesh position={[-12, 5, 23]} rotation={[0, Math.PI, 0]}>
-          <planeBufferGeometry args={[6, 4, 3]} />
+        <mesh
+          scale={[6, 4, 0.2]}
+          position={[-12, 4, 24.9]}
+          rotation={[0, Math.PI, 0]}
+        >
+          <boxGeometry />
           <meshStandardMaterial map={postTexture} />
         </mesh>
-        <mesh position={[-4, 5, 23]} rotation={[0, Math.PI, 0]}>
-          <planeBufferGeometry args={[6, 4, 3]} />
+        <mesh
+          scale={[6, 4, 0.2]}
+          position={[-4, 4, 24.9]}
+          rotation={[0, Math.PI, 0]}
+        >
+          <boxGeometry />
           <meshStandardMaterial map={parliamentTexture} />
         </mesh>
-        <mesh position={[4, 5, 23]} rotation={[0, Math.PI, 0]}>
-          <planeBufferGeometry args={[6, 4, 3]} />
+        <mesh
+          scale={[6, 4, 0.2]}
+          position={[4, 4, 24.9]}
+          rotation={[0, Math.PI, 0]}
+        >
+          <boxGeometry />
           <meshStandardMaterial map={pumpkin1Texture} />
         </mesh>
-        <mesh position={[12, 5, 23]} rotation={[0, Math.PI, 0]}>
-          <planeBufferGeometry args={[6, 4, 3]} />
+        <mesh
+          scale={[6, 4, 0.2]}
+          position={[12, 4, 24.9]}
+          rotation={[0, Math.PI, 0]}
+        >
+          <boxGeometry />
           <meshStandardMaterial map={pumpkin2Texture} />
         </mesh>
 
-        <mesh position={[0, 0, -25]}>
-          <boxBufferGeometry args={[50, 50, 0.1]} />
+        <mesh position={[0, 10, -25]}>
+          <boxGeometry args={[50, 20, 0.1]} />
           <meshStandardMaterial color="white" />
         </mesh>
-        <mesh position={[0, 0, 25]}>
-          <boxBufferGeometry args={[50, 40, 0.1]} />
+        <mesh position={[0, 10, 25]}>
+          <boxGeometry args={[50, 20, 0.1]} />
           <meshStandardMaterial color="white" />
         </mesh>
-        <mesh position={[25, 0, 0]}>
-          <boxBufferGeometry args={[0.1, 40, 50]} />
+        <mesh position={[25, 10, 0]}>
+          <boxGeometry args={[0.1, 20, 50]} />
           <meshStandardMaterial color="white" />
         </mesh>
-        <mesh position={[-25, 0, 0]}>
-          <boxBufferGeometry args={[0.1, 40, 50]} />
+        <mesh position={[-25, 10, 0]}>
+          <boxGeometry args={[0.1, 20, 50]} />
           <meshStandardMaterial color="white" />
         </mesh>
 
         <mesh position={[0, 20, 0]}>
-          <boxBufferGeometry args={[50, 0.1, 50]} />
+          <boxGeometry args={[50, 0.1, 50]} />
           <meshStandardMaterial color="white" />
         </mesh>
 
         <mesh position={[0, 0, 0]}>
-          <boxBufferGeometry args={[50, 0.1, 50]} />
+          <boxGeometry args={[50, 0.1, 50]} />
           <meshStandardMaterial map={floreTexture} />
+          {/* <Drei.MeshReflectorMaterial
+            blur={[300, 100]}
+            resolution={2048}
+            mixBlur={1}
+            mixStrength={50}
+            roughness={1}
+            depthScale={1.2}
+            minDepthThreshold={0.4}
+            maxDepthThreshold={1.4}
+            metalness={0.5}
+            mirror={1}
+          /> */}
         </mesh>
-      </>
+        <Drei.Environment preset="city" />
+      </group>
     ),
     []
   );
