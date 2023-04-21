@@ -59,10 +59,10 @@ const Meshes: React.FC = () => {
           <planeGeometry args={[8, 8, 1]} />
           <meshStandardMaterial map={descriptionTexture} />
         </mesh>
-        <mesh position={[24, 4, 14]} rotation={[0, Math.PI * 1.5, 0]}>
+        {/* <mesh position={[24, 4, 14]} rotation={[0, Math.PI * 1.5, 0]}>
           <planeGeometry args={[4, 4, 1]} />
           <meshStandardMaterial map={logoTexture} />
-        </mesh>
+        </mesh> */}
 
         <mesh scale={[5, 5, 0.2]} position={[0, 4, -24.9]} castShadow>
           <boxGeometry />
