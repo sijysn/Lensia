@@ -33,12 +33,6 @@ const Meshes: React.FC = () => {
   return React.useMemo(
     () => (
       <group>
-        <Drei.Stage>
-          <mesh visible={false} position={[0, 5, 0]}>
-            <planeGeometry args={[1, 16, 1]} />
-          </mesh>
-        </Drei.Stage>
-
         <mesh
           scale={[0.4, 0.4, 0.3]}
           position={[12, -1, 5]}
