@@ -13,7 +13,7 @@ const Meshes: React.FC = () => {
   const sakura5Texture = textureLoader.load("/img/sakura5.jpg");
 
   const titleTexture = textureLoader.load("/img/title.png");
-  const description2Texture = textureLoader.load("/img/description2.png");
+  const descriptionTexture = textureLoader.load("/img/description.png");
   const logoTexture = textureLoader.load("/img/logo.png");
 
   const shadowTexture = textureLoader.load("/img/shadow.jpg");
@@ -55,9 +55,9 @@ const Meshes: React.FC = () => {
           <planeGeometry args={[6, 4, 1]} />
           <meshStandardMaterial map={mochanTexture} />
         </mesh>
-        <mesh position={[24, 5, 6]} rotation={[0, Math.PI * 1.5, 0]}>
+        <mesh position={[24, 5, 7]} rotation={[0, Math.PI * 1.5, 0]}>
           <planeGeometry args={[8, 8, 1]} />
-          <meshStandardMaterial map={description2Texture} />
+          <meshStandardMaterial map={descriptionTexture} />
         </mesh>
         <mesh position={[24, 4, 14]} rotation={[0, Math.PI * 1.5, 0]}>
           <planeGeometry args={[4, 4, 1]} />

@@ -21,7 +21,7 @@ const Canvas = () => {
       />
       <Drei.OrbitControls
         ref={ref}
-        target={[0, 5, 0]}
+        target={[0, 4, 0]}
         minPolarAngle={Math.PI / 2}
         maxPolarAngle={Math.PI / 2}
       />
