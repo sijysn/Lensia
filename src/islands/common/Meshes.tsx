@@ -1,4 +1,5 @@
 import * as Drei from "@react-three/drei";
+import * as Fiber from "@react-three/fiber";
 import * as THREE from "three";
 import * as React from "react";
 
@@ -30,6 +31,33 @@ const Meshes: React.FC = () => {
   floreTexture.wrapS = floreTexture.wrapT = THREE.RepeatWrapping; // 画像を繰り返しにする
   floreTexture.repeat.set(2, 2); // 繰り返す回数
 
+  const sakura1Ref = React.useRef<any>();
+  const sakura2Ref = React.useRef<any>();
+  const sakura3Ref = React.useRef<any>();
+  const sakura4Ref = React.useRef<any>();
+  const sakura5Ref = React.useRef<any>();
+
+  // Fiber.useFrame((state) => {
+
+  // });
+
+  React.useEffect(() => {
+    sakura1Ref.current.target.position.set(0, 4, -24.9);
+    sakura1Ref.current.target.updateMatrixWorld();
+
+    sakura2Ref.current.target.position.set(-18, 4, -24.9);
+    sakura2Ref.current.target.updateMatrixWorld();
+
+    sakura3Ref.current.target.position.set(-9, 4, -24.9);
+    sakura3Ref.current.target.updateMatrixWorld();
+
+    sakura4Ref.current.target.position.set(9, 4, -24.9);
+    sakura4Ref.current.target.updateMatrixWorld();
+
+    sakura5Ref.current.target.position.set(18, 4, -24.9);
+    sakura5Ref.current.target.updateMatrixWorld();
+  });
+
   return React.useMemo(
     () => (
       <group>
@@ -58,26 +86,87 @@ const Meshes: React.FC = () => {
           <meshStandardMaterial map={logoTexture} />
         </mesh> */}
 
-        <mesh scale={[5, 5, 0.2]} position={[0, 4, -24.9]} castShadow>
+        <mesh scale={[5, 5, 0.2]} position={[0, 4, -24.9]}>
           <boxGeometry />
           <meshStandardMaterial map={sakura1Texture} />
         </mesh>
+        <Drei.SpotLight
+          castShadow
+          position={[0, 10, -15]}
+          color="orange"
+          ref={sakura1Ref}
+          penumbra={1}
+          distance={20}
+          angle={0.35}
+          attenuation={5}
+          anglePower={4}
+          intensity={3}
+        />
+
         <mesh scale={[6, 4, 0.2]} position={[-18, 4, -24.9]}>
           <boxGeometry />
           <meshStandardMaterial map={sakura2Texture} />
         </mesh>
+        <Drei.SpotLight
+          castShadow
+          position={[-18, 10, -15]}
+          color="orange"
+          ref={sakura2Ref}
+          penumbra={1}
+          distance={20}
+          angle={0.35}
+          attenuation={5}
+          anglePower={4}
+          intensity={3}
+        />
         <mesh scale={[6, 4, 0.2]} position={[-9, 4, -24.9]}>
           <boxGeometry />
           <meshStandardMaterial map={sakura3Texture} />
         </mesh>
+        <Drei.SpotLight
+          castShadow
+          position={[-9, 10, -15]}
+          color="orange"
+          ref={sakura3Ref}
+          penumbra={1}
+          distance={20}
+          angle={0.35}
+          attenuation={5}
+          anglePower={4}
+          intensity={3}
+        />
         <mesh scale={[6, 4, 0.2]} position={[9, 4, -24.9]}>
           <boxGeometry />
           <meshStandardMaterial map={sakura4Texture} />
         </mesh>
+        <Drei.SpotLight
+          castShadow
+          position={[9, 10, -15]}
+          color="orange"
+          ref={sakura4Ref}
+          penumbra={1}
+          distance={20}
+          angle={0.35}
+          attenuation={5}
+          anglePower={4}
+          intensity={3}
+        />
         <mesh scale={[6, 4, 0.2]} position={[18, 4, -24.9]}>
           <boxGeometry />
           <meshStandardMaterial map={sakura5Texture} />
         </mesh>
+        <Drei.SpotLight
+          castShadow
+          position={[18, 10, -15]}
+          color="orange"
+          ref={sakura5Ref}
+          penumbra={1}
+          distance={20}
+          angle={0.35}
+          attenuation={5}
+          anglePower={4}
+          intensity={3}
+        />
 
         <mesh
           scale={[6, 4, 0.2]}
@@ -157,8 +246,9 @@ const Meshes: React.FC = () => {
 
         <mesh position={[0, 0, 0]}>
           <boxGeometry args={[50, 0.1, 50]} />
-          <meshStandardMaterial map={floreTexture} />
-          {/* <Drei.MeshReflectorMaterial
+          {/* <meshStandardMaterial map={floreTexture} /> */}
+          <meshStandardMaterial />
+          <Drei.MeshReflectorMaterial
             blur={[300, 100]}
             resolution={2048}
             mixBlur={1}
@@ -169,7 +259,7 @@ const Meshes: React.FC = () => {
             maxDepthThreshold={1.4}
             metalness={0.5}
             mirror={1}
-          /> */}
+          />
         </mesh>
         <Drei.Environment preset="city" />
       </group>
