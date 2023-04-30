@@ -7,7 +7,7 @@ const Canvas = () => {
   const ref = React.useRef<any>();
 
   return (
-    <Fiber.Canvas camera={{ fov: 90 }} shadows>
+    <Fiber.Canvas camera={{ fov: 80 }} shadows>
       <Drei.OrbitControls
         ref={ref}
         target={[0, 4, 0]}
