@@ -25,15 +25,19 @@ const MoveableArea: React.FC<Props> = ({ onUnlock, isLocked, endLoading }) => {
     const movementDistance = 0.5;
     switch (e.key) {
       case "ArrowUp":
+      case "w":
         controlsRef.current.moveForward(movementDistance);
         break;
       case "ArrowLeft":
+      case "a":
         controlsRef.current.moveRight(-movementDistance);
         break;
       case "ArrowDown":
+      case "s":
         controlsRef.current.moveForward(-movementDistance);
         break;
       case "ArrowRight":
+      case "d":
         controlsRef.current.moveRight(movementDistance);
         break;
       default:
@@ -53,55 +57,12 @@ const MoveableArea: React.FC<Props> = ({ onUnlock, isLocked, endLoading }) => {
       );
   };
 
-  var startX: number;
-  var startY: number;
-  const onTouchStart = (e: TouchEvent) => {
-    if (!controlsRef.current) {
-      return;
-    }
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-  };
-
-  const onTouchMove = (e: TouchEvent) => {
-    if (!controlsRef.current) {
-      return;
-    }
-    if (e.touches[0].clientX - startX > 70) {
-      controlsRef.current.moveRight(0.2);
-    }
-    if (startY - e.touches[0].clientY > 70) {
-      controlsRef.current.moveForward(0.2);
-    }
-    if (startX - e.touches[0].clientX > 70) {
-      controlsRef.current.moveRight(-0.2);
-    }
-    if (e.touches[0].clientY - startY > 70) {
-      controlsRef.current.moveForward(-0.2);
-    }
-    const { x, z } = controlsRef.current.getObject().position;
-    controlsRef.current
-      .getObject()
-      .position.setX(
-        Math.min(Math.max(x, MovementBounds.xMin), MovementBounds.xMax)
-      );
-    controlsRef.current
-      .getObject()
-      .position.setZ(
-        Math.min(Math.max(z, MovementBounds.zMin), MovementBounds.zMax)
-      );
-  };
-
   React.useEffect(() => {
     document.addEventListener("keydown", onKeyDown);
-    document.addEventListener("touchstart", onTouchStart);
-    document.addEventListener("touchmove", onTouchMove);
     endLoading();
 
     return () => {
       document.removeEventListener("keydown", onKeyDown);
-      document.removeEventListener("touchstart", onTouchStart);
-      document.removeEventListener("touchmove", onTouchMove);
     };
   });
 
