@@ -83,8 +83,6 @@ const Meshes: React.FC = () => {
   return React.useMemo(
     () => (
       <group>
-        <ambientLight intensity={0.1} />
-        <directionalLight castShadow intensity={100} color={0xffffff} />
         <mesh
           scale={[0.4, 0.4, 0.3]}
           position={[12, -1, 5]}
@@ -220,7 +218,7 @@ const Meshes: React.FC = () => {
           anglePower={4}
           intensity={2}
         />
-        <mesh scale={[6, 4, 0.2]} position={[-9, 4, -24.9]}>
+        <mesh scale={[6, 4, 0.2]} position={[-9, 4, -24.9]} receiveShadow>
           <boxGeometry />
           <meshStandardMaterial map={sakura3Texture} />
         </mesh>
@@ -279,7 +277,7 @@ const Meshes: React.FC = () => {
         </mesh>
         <Drei.SpotLight
           castShadow
-          position={[30, 30, -12]}
+          position={[30, 10, -12]}
           color="orange"
           ref={shadowRef}
           penumbra={1}
@@ -300,7 +298,7 @@ const Meshes: React.FC = () => {
         </mesh>
         <Drei.SpotLight
           castShadow
-          position={[30, 30, 0]}
+          position={[30, 10, 0]}
           color="orange"
           ref={tableRef}
           penumbra={1}
@@ -326,7 +324,7 @@ const Meshes: React.FC = () => {
         </mesh>
         <Drei.SpotLight
           castShadow
-          position={[-12, 30, -30]}
+          position={[-12, 10, -30]}
           color="orange"
           ref={postRef}
           penumbra={1}
@@ -347,7 +345,7 @@ const Meshes: React.FC = () => {
         </mesh>
         <Drei.SpotLight
           castShadow
-          position={[-4, 30, -30]}
+          position={[-4, 10, -30]}
           color="orange"
           ref={parliamentRef}
           penumbra={1}
@@ -368,7 +366,7 @@ const Meshes: React.FC = () => {
         </mesh>
         <Drei.SpotLight
           castShadow
-          position={[4, 30, -30]}
+          position={[4, 10, -30]}
           color="orange"
           ref={pumpkin1Ref}
           penumbra={1}
@@ -389,7 +387,7 @@ const Meshes: React.FC = () => {
         </mesh>
         <Drei.SpotLight
           castShadow
-          position={[12, 30, -30]}
+          position={[12, 10, -30]}
           color="orange"
           ref={pumpkin2Ref}
           penumbra={1}
@@ -400,19 +398,19 @@ const Meshes: React.FC = () => {
           intensity={2}
         />
 
-        <mesh position={[0, 10, -25]}>
+        <mesh position={[0, 10, -25]} receiveShadow>
           <boxGeometry args={[50, 20, 0.1]} />
           <meshStandardMaterial color="white" />
         </mesh>
-        <mesh position={[0, 10, 25]}>
+        <mesh position={[0, 10, 25]} receiveShadow>
           <boxGeometry args={[50, 20, 0.1]} />
           <meshStandardMaterial color="white" />
         </mesh>
-        <mesh position={[25, 10, 0]}>
+        <mesh position={[25, 10, 0]} receiveShadow>
           <boxGeometry args={[0.1, 20, 50]} />
           <meshStandardMaterial color="white" />
         </mesh>
-        <mesh position={[-25, 10, 0]}>
+        <mesh position={[-25, 10, 0]} receiveShadow>
           <boxGeometry args={[0.1, 20, 50]} />
           <meshStandardMaterial color="white" />
         </mesh>
@@ -423,18 +421,19 @@ const Meshes: React.FC = () => {
         </mesh>
 
         <mesh position={[0, 0, 0]} receiveShadow>
-          <planeGeometry args={[50, 0.1, 50]} />
+          <boxGeometry args={[50, 0.1, 50]} />
           <Drei.MeshReflectorMaterial
-            blur={[400, 100]}
-            resolution={1024}
+            blur={[300, 100]}
+            resolution={2048}
             mixBlur={1}
-            mixStrength={15}
-            depthScale={1}
-            minDepthThreshold={0.85}
-            metalness={0.6}
+            mixStrength={50}
             roughness={1}
-            mirror={0}
-            // map={floreTexture}
+            // depthScale={1.2}
+            // minDepthThreshold={0.4}
+            // maxDepthThreshold={1.4}
+            metalness={0.5}
+            mirror={1}
+            map={floreTexture}
           />
         </mesh>
         <Drei.Environment preset="city" />

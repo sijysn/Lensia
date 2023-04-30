@@ -10,13 +10,10 @@ type Props = {
 
 const Canvas: React.FC<Props> = ({ onUnlock, isLocked, endLoading }) => {
   return (
-    <Fiber.Canvas camera={{ fov: 60, position: [0, 4, 0] }} shadows>
+    <Fiber.Canvas camera={{ fov: 60, position: [0, 4, 18] }} shadows>
       <color attach="background" args={["#191920"]} />
-      {/* <Drei.Stage>
-        <mesh visible={false} position={[0, 5, 0]}>
-          <planeGeometry args={[1, 16, 1]} />
-        </mesh>
-      </Drei.Stage> */}
+      <ambientLight intensity={0.1} />
+      <directionalLight castShadow intensity={100} position={[0, 100, 0]} />
       <MoveableArea
         onUnlock={onUnlock}
         isLocked={isLocked}

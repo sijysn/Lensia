@@ -8,7 +8,7 @@ const Canvas = () => {
 
   return (
     <Fiber.Canvas camera={{ fov: 70 }} shadows>
-      <hemisphereLight position={[0, 100, 0]} castShadow />
+      <hemisphereLight position={[0, 100, 0]} />
       <directionalLight
         intensity={1}
         castShadow
