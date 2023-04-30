@@ -13,14 +13,15 @@ const Meshes: React.FC = () => {
   const sakura4Texture = textureLoader.load("/img/sakura4.jpg");
   const sakura5Texture = textureLoader.load("/img/sakura5.jpg");
 
-  const shadowTexture = textureLoader.load("/img/shadow.jpg");
-  const tableTexture = textureLoader.load("/img/table.jpg");
+  const nemophila1Texture = textureLoader.load("/img/nemophila1.jpg");
+  const rapeFlower1Texture = textureLoader.load("/img/rape-flower1.jpg");
+  const nemophila3Texture = textureLoader.load("/img/nemophila3.jpg");
+
   const mochanTexture = textureLoader.load("/img/mochan.jpg");
 
-  const parliamentTexture = textureLoader.load("/img/parliament.jpg");
-  const pumpkin1Texture = textureLoader.load("/img/pumpkin1.jpg");
-  const pumpkin2Texture = textureLoader.load("/img/pumpkin2.jpg");
-  const postTexture = textureLoader.load("/img/post.jpg");
+  const asakusa1Texture = textureLoader.load("/img/asakusa1.jpg");
+  const asakusa2Texture = textureLoader.load("/img/asakusa2.jpg");
+  const asakusa3Texture = textureLoader.load("/img/asakusa3.jpg");
 
   const wallTexture = textureLoader.load("/img/wall1.jpg");
   const floorTexture = textureLoader.load("/img/floor1.jpg");
@@ -36,13 +37,13 @@ const Meshes: React.FC = () => {
 
   const titleRef = React.useRef<any>();
 
-  const shadowRef = React.useRef<any>();
-  const tableRef = React.useRef<any>();
+  const nemophila1Ref = React.useRef<any>();
+  const rapeFlower1Ref = React.useRef<any>();
+  const nemophila3Ref = React.useRef<any>();
 
-  const postRef = React.useRef<any>();
-  const parliamentRef = React.useRef<any>();
-  const pumpkin1Ref = React.useRef<any>();
-  const pumpkin2Ref = React.useRef<any>();
+  const asakusa1Ref = React.useRef<any>();
+  const asakusa2Ref = React.useRef<any>();
+  const asakusa3Ref = React.useRef<any>();
 
   React.useEffect(() => {
     sakura1Ref.current.target.position.set(0, 4, -24.9);
@@ -63,28 +64,30 @@ const Meshes: React.FC = () => {
     titleRef.current.target.position.set(24.9, 6, 0);
     titleRef.current.target.updateMatrixWorld();
 
-    shadowRef.current.target.position.set(-24.9, 4, -12);
-    shadowRef.current.target.updateMatrixWorld();
+    nemophila1Ref.current.target.position.set(-24.9, 4, -12);
+    nemophila1Ref.current.target.updateMatrixWorld();
 
-    tableRef.current.target.position.set(-24.9, 4, 0);
-    tableRef.current.target.updateMatrixWorld();
+    rapeFlower1Ref.current.target.position.set(-24.9, 4, 0);
+    rapeFlower1Ref.current.target.updateMatrixWorld();
 
-    postRef.current.target.position.set(-12, 4, 24.9);
-    postRef.current.target.updateMatrixWorld();
+    nemophila3Ref.current.target.position.set(-24.9, 4, 12);
+    nemophila3Ref.current.target.updateMatrixWorld();
 
-    parliamentRef.current.target.position.set(-4, 4, 24.9);
-    parliamentRef.current.target.updateMatrixWorld();
+    asakusa1Ref.current.target.position.set(-10, 4, 24.9);
+    asakusa1Ref.current.target.updateMatrixWorld();
 
-    pumpkin1Ref.current.target.position.set(4, 4, 24.9);
-    pumpkin1Ref.current.target.updateMatrixWorld();
+    asakusa2Ref.current.target.position.set(0, 4, 24.9);
+    asakusa2Ref.current.target.updateMatrixWorld();
 
-    pumpkin2Ref.current.target.position.set(12, 4, 24.9);
-    pumpkin2Ref.current.target.updateMatrixWorld();
+    asakusa3Ref.current.target.position.set(10, 4, 24.9);
+    asakusa3Ref.current.target.updateMatrixWorld();
   });
 
   return React.useMemo(
     () => (
       <group dispose={null}>
+        <hemisphereLight intensity={0.1} />
+
         <mesh
           receiveShadow
           castShadow
@@ -186,7 +189,7 @@ const Meshes: React.FC = () => {
           angle={0.2}
           attenuation={5}
           anglePower={4}
-          intensity={2}
+          intensity={1.5}
         />
 
         <mesh scale={[5, 5, 0.2]} position={[0, 4, -24.9]} receiveShadow>
@@ -203,7 +206,7 @@ const Meshes: React.FC = () => {
           angle={0.1}
           attenuation={5}
           anglePower={4}
-          intensity={2}
+          intensity={1.5}
         />
 
         <mesh scale={[6, 4, 0.2]} position={[-18, 4, -24.9]} receiveShadow>
@@ -220,7 +223,7 @@ const Meshes: React.FC = () => {
           angle={0.1}
           attenuation={5}
           anglePower={4}
-          intensity={2}
+          intensity={1.5}
         />
         <mesh scale={[6, 4, 0.2]} position={[-9, 4, -24.9]} receiveShadow>
           <boxGeometry />
@@ -236,7 +239,7 @@ const Meshes: React.FC = () => {
           angle={0.1}
           attenuation={5}
           anglePower={4}
-          intensity={2}
+          intensity={1.5}
         />
         <mesh scale={[6, 4, 0.2]} position={[9, 4, -24.9]}>
           <boxGeometry />
@@ -252,7 +255,7 @@ const Meshes: React.FC = () => {
           angle={0.1}
           attenuation={5}
           anglePower={4}
-          intensity={2}
+          intensity={1.5}
         />
         <mesh scale={[6, 4, 0.2]} position={[18, 4, -24.9]}>
           <boxGeometry />
@@ -268,28 +271,28 @@ const Meshes: React.FC = () => {
           angle={0.1}
           attenuation={5}
           anglePower={4}
-          intensity={2}
+          intensity={1.5}
         />
 
         <mesh
-          scale={[6, 4, 0.2]}
+          scale={[4, 6, 0.2]}
           position={[-24.9, 4, -12]}
           rotation={[0, Math.PI * 0.5, 0]}
         >
           <boxGeometry />
-          <meshStandardMaterial map={shadowTexture} />
+          <meshStandardMaterial map={nemophila1Texture} />
         </mesh>
         <Drei.SpotLight
           castShadow
           position={[30, 10, -12]}
           color="orange"
-          ref={shadowRef}
+          ref={nemophila1Ref}
           penumbra={1}
           distance={100}
           angle={0.1}
           attenuation={5}
           anglePower={4}
-          intensity={2}
+          intensity={1.5}
         />
 
         <mesh
@@ -298,39 +301,34 @@ const Meshes: React.FC = () => {
           rotation={[0, Math.PI * 0.5, 0]}
         >
           <boxGeometry />
-          <meshStandardMaterial map={tableTexture} />
+          <meshStandardMaterial map={rapeFlower1Texture} />
         </mesh>
         <Drei.SpotLight
           castShadow
           position={[30, 10, 0]}
           color="orange"
-          ref={tableRef}
+          ref={rapeFlower1Ref}
           penumbra={1}
           distance={100}
           angle={0.1}
           attenuation={5}
           anglePower={4}
-          intensity={2}
+          intensity={1.5}
         />
-
-        {/* <mesh position={[-24.9, 4, 16]} rotation={[0, Math.PI * 0.5, 0]}>
-          <planeGeometry args={[8, 8, 1]} />
-          <meshStandardMaterial color={new THREE.Color(0x000000)} />
-        </mesh> */}
 
         <mesh
           scale={[6, 4, 0.2]}
-          position={[-12, 4, 24.9]}
-          rotation={[0, Math.PI, 0]}
+          position={[-24.9, 4, 12]}
+          rotation={[0, Math.PI * 0.5, 0]}
         >
           <boxGeometry />
-          <meshStandardMaterial map={postTexture} />
+          <meshStandardMaterial map={nemophila3Texture} />
         </mesh>
         <Drei.SpotLight
           castShadow
-          position={[-12, 10, -30]}
+          position={[30, 10, 12]}
           color="orange"
-          ref={postRef}
+          ref={nemophila3Ref}
           penumbra={1}
           distance={100}
           angle={0.1}
@@ -341,65 +339,65 @@ const Meshes: React.FC = () => {
 
         <mesh
           scale={[6, 4, 0.2]}
-          position={[-4, 4, 24.9]}
+          position={[-10, 4, 24.9]}
           rotation={[0, Math.PI, 0]}
         >
           <boxGeometry />
-          <meshStandardMaterial map={parliamentTexture} />
+          <meshStandardMaterial map={asakusa1Texture} />
         </mesh>
         <Drei.SpotLight
           castShadow
-          position={[-4, 10, -30]}
+          position={[-10, 10, -30]}
           color="orange"
-          ref={parliamentRef}
+          ref={asakusa1Ref}
           penumbra={1}
           distance={100}
           angle={0.1}
           attenuation={5}
           anglePower={4}
-          intensity={2}
+          intensity={3}
         />
 
         <mesh
           scale={[6, 4, 0.2]}
-          position={[4, 4, 24.9]}
+          position={[0, 4, 24.9]}
           rotation={[0, Math.PI, 0]}
         >
           <boxGeometry />
-          <meshStandardMaterial map={pumpkin1Texture} />
+          <meshStandardMaterial map={asakusa2Texture} />
         </mesh>
         <Drei.SpotLight
           castShadow
-          position={[4, 10, -30]}
+          position={[0, 10, -30]}
           color="orange"
-          ref={pumpkin1Ref}
+          ref={asakusa2Ref}
           penumbra={1}
           distance={100}
           angle={0.1}
           attenuation={5}
           anglePower={4}
-          intensity={2}
+          intensity={3}
         />
 
         <mesh
           scale={[6, 4, 0.2]}
-          position={[12, 4, 24.9]}
+          position={[10, 4, 24.9]}
           rotation={[0, Math.PI, 0]}
         >
           <boxGeometry />
-          <meshStandardMaterial map={pumpkin2Texture} />
+          <meshStandardMaterial map={asakusa3Texture} />
         </mesh>
         <Drei.SpotLight
           castShadow
-          position={[12, 10, -30]}
+          position={[10, 10, -30]}
           color="orange"
-          ref={pumpkin2Ref}
+          ref={asakusa3Ref}
           penumbra={1}
           distance={100}
           angle={0.1}
           attenuation={5}
           anglePower={4}
-          intensity={2}
+          intensity={3}
         />
 
         <mesh position={[0, 10, -25]} receiveShadow>
@@ -429,12 +427,12 @@ const Meshes: React.FC = () => {
           <Drei.MeshReflectorMaterial
             blur={[400, 100]}
             resolution={1024}
-            mixBlur={0.8}
+            mixBlur={0.5}
             opacity={2}
             depthScale={1.1}
             minDepthThreshold={0.5}
             maxDepthThreshold={1.25}
-            roughness={1}
+            roughness={0.5}
             metalness={0.1}
             mirror={1}
             map={floorTexture}
