@@ -10,10 +10,11 @@ type Props = {
 
 const Canvas: React.FC<Props> = ({ onUnlock, isLocked, endLoading }) => {
   return (
-    <Fiber.Canvas camera={{ fov: 60, position: [0, 4, 18] }} shadows>
-      <color attach="background" args={["#191920"]} />
-      <ambientLight intensity={0.1} />
-      <directionalLight castShadow intensity={100} position={[0, 100, 0]} />
+    <Fiber.Canvas
+      camera={{ fov: 60, position: [0, 4, 18] }}
+      shadows
+      dpr={[1, 2]}
+    >
       <MoveableArea
         onUnlock={onUnlock}
         isLocked={isLocked}
