@@ -438,7 +438,8 @@ const Meshes: React.FC = () => {
             map={floorTexture}
           />
         </mesh>
-        <Drei.Environment preset="city" />
+        {/* <Drei.Environment preset="city" /> */}
+        <ambientLight intensity={0.1}/>
       </group>
     ),
     []
