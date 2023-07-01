@@ -439,7 +439,7 @@ const Meshes: React.FC = () => {
           />
         </mesh>
         {/* <Drei.Environment preset="city" /> */}
-        <ambientLight intensity={0.1}/>
+        <ambientLight intensity={0.2}/>
       </group>
     ),
     []
